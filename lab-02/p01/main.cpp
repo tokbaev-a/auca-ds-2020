@@ -2,30 +2,21 @@
 
 using namespace std;
 
-int sumofDigits(int n)
-{
-    int r = 0;
-    while (n != 0)
-    {
-        r += n % 10;
-        n /= 10;
-    }
-    return r;
-}
-
 int main()
 {
-    int n;
-    while (cin >> n && n != 0)
+    int number_of_articles;
+    int average_number_of_citations;
+    int total_count_of_citations;
+
+    cin >> number_of_articles >> average_number_of_citations;
+    total_count_of_citations = number_of_articles*average_number_of_citations;
+    while(true)
     {
-        int s = sumofDigits(n);
-        for (int m = 11; m <= 100; m++)
+        if((float)total_count_of_citations / (float)number_of_articles <= average_number_of_citations-1)
         {
-            if (s == sumofDigits(m*n))
-            {
-                cout << m << "\n";
-                break;
-            }
+        break;
         }
+        --total_count_of_citations;
     }
+    cout << total_count_of_citations+1;
 }
