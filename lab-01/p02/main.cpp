@@ -27,10 +27,6 @@ int main()
         {
             cout << left << setw(kNameWidth) << name << " | " << right << setw(kAverageWidth) << "no data" << "\n";
         }
-
-        if (cin.fail())
-        {
             cin.clear();
-        }
     }
 }
