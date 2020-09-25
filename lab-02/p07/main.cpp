@@ -9,7 +9,7 @@ int main()
 {
     int x;
     int n;
-    int res;
+    int res = 0;
     cin >> x >> n;
     while (n-- > 0)
     {
