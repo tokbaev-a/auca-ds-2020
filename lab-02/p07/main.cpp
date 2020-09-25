@@ -17,5 +17,5 @@ int main()
         cin >> p;
         res += x - p;
     }
-    cout << res + x;
+    cout << res + x << "\n";
 }
