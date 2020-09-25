@@ -10,7 +10,7 @@ int main()
 {
     int eas, med, har, n;
     cin >> eas >> med >> har >> n;
-    if(eas != 0 && med != 0 && har != 0 && (eas+med+har)>=n)
+    if(eas != 0 && med != 0 && har != 0 && (eas+med+har)>=n && n >= 3)
     {
         cout << "YES";
     }
