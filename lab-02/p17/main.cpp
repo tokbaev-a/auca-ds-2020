@@ -9,14 +9,25 @@ using namespace std;
 int main()
 {
     int n, num;
-    int realnum = 1;
+    int realnum = 0;
     bool sens = true;
+    bool isFirst = true;
     cin >> n;
     while (n-- > 0)
     {
-        if (cin >> num)
+        cin >> num;
+        if (cin.fail())
         {
-
+            cin.clear();
+            cin.ignore(5, ' ');
+        }
+        else
+        {
+            if (isFirst)
+            {
+                realnum = num;
+                isFirst = false;
+            }
             if (num == realnum)
             {
                 sens = true;
@@ -25,11 +36,6 @@ int main()
             {
                 sens = false;
             }
-        }
-        else
-        {
-            cin.clear();
-            cin.ignore(5, ' ');
         }
         ++realnum;
     }
