@@ -16,18 +16,15 @@ int main()
         cin >> name >> st >> bi >> cr;
         if (st >= "2010/01/01" || bi >= "1991/01/01")
         {
-            cout << name << " eligible"
-                 << "\n";
+            cout << name << " eligible\n";
         }
         else if (cr >= "41")
         {
-            cout << name << " ineligible"
-                 << "\n";
+            cout << name << " ineligible\n";
         }
         else
         {
-            cout << name << " petitions"
-                 << "\n";
+            cout << name << " coach petitions\n";
         }
     }
 }
