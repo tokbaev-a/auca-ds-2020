@@ -15,11 +15,11 @@ int main()
         string name, st, bi;
         int cr;
         cin >> name >> st >> bi >> cr;
-        if (st >= "2010/01/01")
+        if (st.substr(0, 4) >= "2010")
         {
             cout << name << " eligible\n";
         }
-        else if (bi >= "1991/01/01")
+        else if (bi.substr(0, 4) >= "1991")
         {
             cout << name << " eligible\n";
         }
