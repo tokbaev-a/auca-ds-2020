@@ -10,7 +10,7 @@ int main()
 {
     int n = 0;
     int c = 0;
-    int min = INT_MAX;
+    int min = numeric_limits<int>::max();
     cin >> n;
     int j[n];
     for (int i = 0; i < n; i++)
