@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     cout << "Hello!";
-    #ifdef SECRET
+#ifdef SECRET
     cout << " Nice to meet u)";
-    #endif
+#endif
 }
