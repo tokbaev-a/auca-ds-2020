@@ -13,6 +13,7 @@ int main()
     total = 0;
     while (cin >> n)
     {
+        if(n == -1)break;
         while (n-- > 0)
         {
             cin >> sp >> ti;
