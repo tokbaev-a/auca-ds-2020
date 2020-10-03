@@ -8,7 +8,8 @@ using namespace std;
 
 int main()
 {
-    int n, p, r, f;
+    int n;
+    long long p, r, f;
     cin >> n;
     while (n-- > 0)
     {
