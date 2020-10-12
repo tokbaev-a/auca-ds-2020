@@ -3,24 +3,39 @@
 #include <string>
 #include <iomanip>
 #include <algorithm>
-
 using namespace std;
 
+int numOfDigits(int a)
+{
+    int b;
+    while ((a /= 10) > 0)
+    {
+        b++;
+    }
+    return b++;
+}
 int main()
 {
-    unsigned long long digit, i;
-    while (cin >> digit)
+    while(true)
     {
-        unsigned long long counter = 1;
-        while (digit != 1)
+        int counter = 2;
+        int dig;
+        string s;
+        cin >> s;
+        if (s == "END")break;
+        dig = s.size();
+        if (dig >= 1 && s != "1")
         {
-            for (i = 0; digit > 0; i++)
+            while (dig != 1)
             {
-                digit /= 10;
+                dig = numOfDigits(dig);
+                counter++;
             }
-            counter++;
-            digit = i;
+            cout << counter << "\n";
         }
-        cout << counter << "\n";
+        else if (s == "1")
+        {
+            cout << "1" << "\n";
+        }
     }
 }
