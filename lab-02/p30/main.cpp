@@ -7,35 +7,44 @@ using namespace std;
 
 int numOfDigits(int a)
 {
-    int b;
+    int b = 1;
     while ((a /= 10) > 0)
     {
         b++;
     }
-    return b++;
+    return b;
 }
+
 int main()
 {
     while(true)
     {
         int counter = 2;
-        int dig;
+        int digits;
         string s;
         cin >> s;
-        if (s == "END")break;
-        dig = s.size();
-        if (dig >= 1 && s != "1")
+        if (s == "END")
         {
-            while (dig != 1)
+            break;
+        }
+        digits = s.size();
+
+        if (digits > 1)
+        {
+            while (digits != 1)
             {
-                dig = numOfDigits(dig);
+                digits = numOfDigits(digits);
                 counter++;
             }
-            cout << counter << "\n";
+            cout << counter << '\n';
+        }
+        else if (s != "1" && digits == 1)
+        {
+            cout << counter << '\n';
         }
         else if (s == "1")
         {
-            cout << "1" << "\n";
+            cout << "1" << '\n';
         }
     }
 }
