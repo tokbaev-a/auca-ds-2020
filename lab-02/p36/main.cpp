@@ -19,7 +19,7 @@ int index(int a[], int x, int n)
 int main()
 {
     int n, min, ans1, ans2;
-    min = INT_MAX;
+    min = 1000;
     cin >> n;
     int arr[n] = {0};
     int arr1[n] = {0};
