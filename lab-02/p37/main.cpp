@@ -20,22 +20,31 @@ int main()
     }
     for (int i = 1; i < n; i++)
     {
+        int k = 0;
+        if ((static_cast<int>((a[i])[k])) == (static_cast<int>((a[i - 1])[k])))
+        {
+            while ((static_cast<int>((a[i])[k])) == (static_cast<int>((a[i - 1])[k])))
+            {
+                k++;
+            }
+        }
+
         if (first)
         {
-            if ((static_cast<int>((a[i])[0])) < (static_cast<int>((a[i - 1])[0])))
+            if ((static_cast<int>((a[i])[k])) < (static_cast<int>((a[i - 1])[k])))
                 inc = true;
-            else if ((static_cast<int>((a[i])[0])) > (static_cast<int>((a[i - 1])[0])))
+            else if ((static_cast<int>((a[i])[k])) > (static_cast<int>((a[i - 1])[k])))
                 inc = false;
             first = false;
         }
         else if (inc)
         {
-            if ((static_cast<int>((a[i])[0])) > (static_cast<int>((a[i - 1])[0])))
+            if ((static_cast<int>((a[i])[k])) > (static_cast<int>((a[i - 1])[k])))
                 b = true;
         }
         else if (!inc)
         {
-            if ((static_cast<int>((a[i])[0])) < (static_cast<int>((a[i - 1])[0])))
+            if ((static_cast<int>((a[i])[k])) < (static_cast<int>((a[i - 1])[k])))
                 b = true;
         }
     }
