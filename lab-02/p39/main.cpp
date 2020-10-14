@@ -5,11 +5,11 @@ using namespace std;
 int main()
 {
     int n, god, mgod, godmax, mgodmax, a;
-    godmax = numeric_limits<int>::min();
-    mgodmax = numeric_limits<int>::min();
     cin >> n;
     while (n-- > 0)
     {
+        godmax = numeric_limits<int>::min();
+        mgodmax = numeric_limits<int>::min();
         cin >> god >> mgod;
         while (god-- > 0)
         {
