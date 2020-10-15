@@ -1,12 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
 int main()
 {
-    int r, c, counter;
+    int r, c;
     cin >> r >> c;
-    int field[r][c];
     char command_field[r][c];
     int gps[] = {0, 0};
     for (int i = 0; i < r; i++)
@@ -14,88 +13,56 @@ int main()
         for (int j = 0; j < c; j++)
         {
             cin >> command_field[i][j];
-            field[i][j] = 0;
         }
     }
-    field[0][0] = 1;
-    while (true)
+
+    for (int i = 0; i <= r * c; i++)
     {
-        if (command_field[gps[0]][gps[1]] == 'T')
+        if (i == r * c)
         {
-            cout << counter << "\n";
+            cout << "Lost\n";
             break;
         }
-        if (command_field[gps[0]][gps[1]] == 'N')
+        else if (command_field[gps[0]][gps[1]] == 'T')
         {
-            counter++;
-            gps[0] -= 1;
+            cout << i << "\n";
+            break;
+        }
+        else if (command_field[gps[0]][gps[1]] == 'N')
+        {
+            gps[0]--;
             if (gps[0] < 0)
             {
-                cout << "Out"
-                     << "\n";
+                cout << "Out\n";
                 break;
             }
-            else if (field[gps[0]][gps[1]] == 1)
-            {
-                cout << "Lost"
-                     << "\n";
-                break;
-            }
-            field[gps[0]][gps[1]] = 1;
         }
         else if (command_field[gps[0]][gps[1]] == 'S')
         {
-            counter++;
-            gps[0] += 1;
+            gps[0]++;
             if (gps[0] > r - 1)
             {
-                cout << "Out"
-                     << "\n";
+                cout << "Out\n";
                 break;
             }
-            else if (field[gps[0]][gps[1]] == 1)
-            {
-                cout << "Lost"
-                     << "\n";
-                break;
-            }
-            field[gps[0]][gps[1]] = 1;
         }
         else if (command_field[gps[0]][gps[1]] == 'W')
         {
-            counter++;
-            gps[1] -= 1;
+            gps[1]--;
             if (gps[1] < 0)
             {
-                cout << "Out"
-                     << "\n";
+                cout << "Out\n";
                 break;
             }
-            else if (field[gps[0]][gps[1]] == 1)
-            {
-                cout << "Lost"
-                     << "\n";
-                break;
-            }
-            field[gps[0]][gps[1]] = 1;
         }
         else if (command_field[gps[0]][gps[1]] == 'E')
         {
-            counter++;
-            gps[1] += 1;
+            gps[1]++;
             if (gps[1] > c - 1)
             {
-                cout << "Out"
-                     << "\n";
+                cout << "Out\n";
                 break;
             }
-            else if (field[gps[0]][gps[1]] == 1)
-            {
-                cout << "Lost"
-                     << "\n";
-                break;
-            }
-            field[gps[0]][gps[1]] = 1;
         }
     }
 }
