@@ -11,29 +11,25 @@ int main()
     counter = 1;
     while (cin >> num)
     {
+        cout << "Case " << counter << ":\n";
+        counter++;
         cin >> n;
         vector<bool> ans;
         while (n-- > 0)
         {
             cin >> a >> b;
-            for (int i = a; i <= b; i++)
+            for (int i = min(a, b); i <= max(a, b); i++)
             {
-                if (num[i] != num[a])
+                if (num[i] != num[min(a, b)])
                     same = false;
             }
-            ans.push_back(same);
-            same = true;
-        }
-        cout << "Case " << counter << ":\n";
-        counter++;
-        for (int i = 0; i < ans.size(); i++)
-        {
-            if (ans[i] == true)
+            if (same == true)
                 cout << "Yes"
                      << "\n";
             else
                 cout << "No"
                      << "\n";
+            same = true;
         }
     }
 }
