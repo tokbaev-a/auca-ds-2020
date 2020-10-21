@@ -53,6 +53,7 @@ int main()
         {
             cout << ans[i][j] << " " << ans1[i][j] << "\n";
         }
+        if (i != ans.size() - 1)
             cout << "\n";
     }
 }
