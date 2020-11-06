@@ -1,5 +1,5 @@
 #include <iostream>
-#include "StrUtils.hpp"
+#include "../../libs/StrUtils.hpp"
 
 using namespace std;
 
