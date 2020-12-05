@@ -213,5 +213,5 @@ int main()
         if (cmd == "pile" && p == "over")
             world.pileOver(a, b);
     }
-    cout << world << endl;
+    cout << world;
 }
