@@ -6,9 +6,9 @@ int main()
 {
     string line;
     getline(cin, line);
-    int n = stoi(line);
+    int k = stoi(line);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < k; i++)
     {
         getline(cin, line);
         istringstream sinp(line);
