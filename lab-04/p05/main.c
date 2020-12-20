@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define N 5
+#define M 5
 
-#define N 10
-#define M 7
-
-void printArray(int *p, int n)
+        void printArray(int *p, int n)
 {
-    for (int *q = p + n; p < q; ++p)
+    for (int *q = p + n; p < q; p++)
     {
         printf("%d ", *p);
     }
@@ -32,8 +31,7 @@ void reverse(int *beg, int *end)
         int t = *beg;
         *beg = *end;
         *end = t;
-
-        ++beg;
+        beg++;
     }
 }
 
@@ -44,13 +42,18 @@ int main(void)
     int cp = 0;
 
     int x;
+
     while (scanf("%d", &x) == 1)
     {
-        if (sz == cp)
+        if (p == NULL)
+        {
+            p = (int *)malloc(sizeof(int) * (sz + 1));
+        }
+        else
         {
             int newCp = sz == 0 ? 1 : cp * 2;
             int *q = (int *)malloc(sizeof(int) * newCp);
-            for (int i = 0; i < sz; ++i)
+            for (int i = 0; i < sz; i++)
             {
                 q[i] = p[i];
             }
@@ -59,6 +62,14 @@ int main(void)
             cp = newCp;
         }
         p[sz] = x;
-        ++sz;
+        sz++;
     }
+
+    printArray(p, sz);
+
+    reverse(p, p + sz);
+    printArray(p, sz);
+
+    free(p);
 }
+
