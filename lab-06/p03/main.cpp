@@ -4,42 +4,48 @@
 
 using namespace std;
 
-struct GreaterThan
+struct FirstGreater
 {
-    int mx;
+    int i;
 
-    GreaterThan(int x) : mx(x)
+    FirstGreater(int x) : i(x)
     {
+        
     }
 
     bool operator()(int n) const
     {
-        return n > mx;
+        return n > i;
     }
 };
 
 int main()
 {
-    int x;
-    cin >> x;
     vector<int> a = {3, 1, 20, 4, 7, 0, 5};
+    int x;
 
-    auto p = find_if(a.begin(), a.end(), GreaterThan(x));
+    cin >> x;
+
+    auto p = find_if(a.begin(), a.end(), FirstGreater(x));
 
     if (p != a.end())
     {
-        cout << "index: " << p - a.begin() << "\n";
+        cout << p - a.begin() << "\n";
     }
     else
     {
         cout << "not found\n";
     }
 
-    auto q = find_if(a.begin(), a.end(), [x](int n) { return n > x; });
+    cout << "//////////\n";
+
+    auto q = find_if(a.begin(), a.end(), [x](int n) {
+        return n > x;
+    });
 
     if (q != a.end())
     {
-        cout << "lambda index: " << q - a.begin() << "\n";
+        cout << q - a.begin() << "\n";
     }
     else
     {
