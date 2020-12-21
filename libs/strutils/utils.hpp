@@ -112,3 +112,23 @@ bool auBinarySearch(Iter beg, Iter end, const T &k)
     Iter lb = auLowerBound(beg, end, k);
     return *lb == k;
 }
+
+template <typename Iter, typename Predicate>
+void auInsertSort(Iter beg, Iter end, Predicate p)
+{
+    auto i = beg + 1;
+
+    while (i != end)
+    {
+        auto j = i - 1;
+        auto t = *i;
+
+        while (j - beg >= 0 && p(t, *j))
+        {
+            *(j + 1) = *j;
+            j--;
+        }
+        *(j + 1) = t;
+        i++;
+    }
+}
