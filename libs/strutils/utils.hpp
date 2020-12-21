@@ -105,3 +105,10 @@ Iter auLowerBound(Iter beg, Iter end, const T &k)
     }
     return beg;
 }
+
+template <typename Iter, typename T>
+bool auBinarySearch(Iter beg, Iter end, const T &k)
+{
+    Iter lb = auLowerBound(beg, end, k);
+    return *lb == k;
+}
