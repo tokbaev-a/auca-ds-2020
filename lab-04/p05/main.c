@@ -3,7 +3,7 @@
 #define N 5
 #define M 5
 
-        void printArray(int *p, int n)
+void printArray(int *p, int n)
 {
     for (int *q = p + n; p < q; p++)
     {
@@ -72,4 +72,3 @@ int main(void)
 
     free(p);
 }
-
