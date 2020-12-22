@@ -116,20 +116,12 @@ bool auBinarySearch(Iter beg, Iter end, const T &k)
 template <typename Iter, typename Predicate>
 void auInsertSort(Iter beg, Iter end, Predicate p)
 {
-    auto i = beg + 1;
-
-    while (i != end)
+    for(Iter cur = beg; cur != end; ++cur)
     {
-        auto j = i - 1;
-        auto t = *i;
-
-        while (j - beg >= 0 && p(t, *j))
+        for(Iter it = cur, it2 = cur; it != beg && *it2 < *(--it); --it2)
         {
-            *(j + 1) = *j;
-            j--;
+            auSwap(*it, *it2);
         }
-        *(j + 1) = t;
-        i++;
     }
 }
 

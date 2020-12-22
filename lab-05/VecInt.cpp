@@ -1,8 +1,9 @@
 #include "VecInt.hpp"
-#include "../libs/utils.hpp"
+#include "../libs/strutils/utils.hpp"
 
 std::size_t VecInt::counter = 0;
 
+//p01
 VecInt::VecInt(std::size_t n)
     : data(new int[n]), sz(n), cp(n)
 {
@@ -15,14 +16,14 @@ VecInt::VecInt(std::size_t n)
 VecInt::VecInt(std::initializer_list<int> init)
     : data(new int[init.size()]), sz(init.size()), cp(init.size())
 {
-    auCopy(init.begin(), init.end(), data);
+    std::copy(init.begin(), init.end(), data);
 }
 
 VecInt::VecInt(const VecInt &other)
     : data(new int[other.cp]), sz(other.sz), cp(other.cp)
 {
     counter += other.size();
-    auCopy(other.begin(), other.end(), data);
+    std::copy(other.begin(), other.end(), data);
 }
 
 VecInt &VecInt::operator=(const VecInt &other)
@@ -31,7 +32,7 @@ VecInt &VecInt::operator=(const VecInt &other)
     {
         int *newData = new int[other.cp];
         counter += other.size();
-        auCopy(other.begin(), other.end(), newData);
+        std::copy(other.begin(), other.end(), newData);
         delete[] data;
         data = newData;
         sz = other.sz;
@@ -64,6 +65,7 @@ VecInt &VecInt::operator=(VecInt &&other) noexcept
     return *this;
 }
 
+//p01
 VecInt::~VecInt()
 {
     delete[] data;
@@ -77,13 +79,14 @@ void VecInt::reserve(std::size_t newCp)
     }
 
     int *newData = new int[newCp];
-    auCopy(data, data + sz, newData);
+    std::copy(data, data + sz, newData);
 
     delete[] data;
     data = newData;
     cp = newCp;
 }
 
+//p01
 void VecInt::pushBack(int x)
 {
     if (sz == cp)
@@ -129,7 +132,7 @@ VecInt::Iter VecInt::erase(Iter pos)
 
 VecInt::Iter VecInt::erase(Iter first, Iter last)
 {
-    auCopy(last, end(), first);
+    std::copy(last, end(), first);
     sz -= last - first;
 
     return first;
