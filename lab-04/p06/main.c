@@ -37,7 +37,6 @@ void reverse(int *beg, int *end)
 
 struct VecInt
 {
-    /* data */
     int *p;
     size_t sz;
     size_t cp;
