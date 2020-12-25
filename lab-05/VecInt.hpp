@@ -13,7 +13,7 @@ public:
     using Iter = int *;
     using CIter = const int *;
 
-    //p01
+    //p01 02
     VecInt()
         : data(nullptr), sz(0), cp(0)
     {
@@ -22,6 +22,7 @@ public:
     //p01
     VecInt(std::size_t n);
 
+    //p02
     // constructor with initializer list
     VecInt(std::initializer_list<int> init);
 

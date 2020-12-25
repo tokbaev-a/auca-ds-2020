@@ -5,47 +5,53 @@
 
 using namespace std;
 
-struct Num
-{
-    int mGen;
-    double mMod;
-    Num(int gen, double mod)
-        : mGen(gen), mMod(mod)
-    {
-    }
-};
-
 int main()
 {
     int n, m;
 
-    cin >> n >> m;
+    while (cin >> n >> m && (n != 0 || m != 0))
+    {
+        vector<int> v(n);
 
-    vector<Num> num;
-    int inp;
-    n += 2;
-    while (n-- > 0)
-    {
-        cin >> inp;
-        if (inp != 0)
-            num.push_back({inp, (double)(inp % m)});
+        for (auto &x : v)
+        {
+            cin >> x;
+        }
+
+        sort(begin(v), end(v), [m](int a, int b) {
+            int ra = a % m;
+            int rb = b % m;
+
+            if (ra < rb)
+            {
+                return true;
+            }
+            if (ra > rb)
+            {
+                return false;
+            }
+
+            if (a % 2 != 0 && b % 2 == 0)
+            {
+                return true;
+            }
+            if (a % 2 != 0 && b % 2 != 0)
+            {
+                return a > b;
+            }
+            if (a % 2 == 0 && b % 2 == 0)
+            {
+                return a < b;
+            }
+            return false;
+        });
+
+        cout << n << " " << m << "\n";
+
+        for (auto e : v)
+        {
+            cout << e << "\n";
+        }
     }
-    sort(begin(num), end(num), [](const Num &n1, const Num &n2) {
-        // if (n1.mMod == n2.mMod && n1.mGen / 2 != 0 && n2.mGen / 2 == 0)
-        // {
-        //     return n1.mGen > n2.mGen;
-        // }
-        // else
-            // return n1.mMod < n2.mMod;
-        // else if (n1.mMod == n2.mMod && n1.mGen / 2 != 0 && n2.mGen / 2 == 0)
-        // {
-        //     return n1.mMod < n2.mMod;
-        // }
-        return n1.mGen / 2 != 0;
-    });
-    for (const auto &n : num)
-    {
-        cout << n.mGen << endl;
-    }
-    cout << 0 << " " << 0 << endl;
+    cout << "0 0\n";
 }
