@@ -34,6 +34,20 @@ int main()
             pair.push_back(p);
         }
 
+        for (int i = 0; i < s.length(); i++)
+        {
+            int c = 0;
+            for (int j = 0; j < s.length(); j++)
+            {
+                if (s[i] == s[j])
+                {
+                    c++;
+                }
+            }
+            Pair p(s[i], c);
+            pair.push_back(p);
+        }
+
         sort(begin(pair), end(pair), [](const Pair &p1, const Pair &p2) {
             if (p1.value < p2.value)
                 return true;
