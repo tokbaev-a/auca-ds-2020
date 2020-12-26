@@ -48,7 +48,7 @@ int main()
 
         cout << n << " " << m << "\n";
 
-        for (auto e : v)
+        for (auto &e : v)
         {
             cout << e << "\n";
         }
