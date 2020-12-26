@@ -50,11 +50,11 @@ int main()
             return s1.counts < s2.counts;
         });
 
-        for (int i = 0; i < DNAs.size(); i++)
+        for (int i = 0; i < (int)DNAs.size(); i++)
         {
             cout << DNAs[i].seq << "\n";
         }
-        if (x != 1)
+        if (x != 0)
         {
             cout << "\n";
         }
