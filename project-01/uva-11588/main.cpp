@@ -5,8 +5,9 @@ using namespace std;
 struct Image
 {
     char letter;
+    int count;
 
-    Image(char l) : letter(l)
+    Image(char l, int c) : letter(l), count(c)
     {
     }
 };
@@ -25,7 +26,7 @@ int main()
         {
             char letter;
             cin >> letter;
-            images.emplace_back(letter);
+            images.emplace_back(letter, 1);
         }
 
         sort(begin(images), end(images), [](Image &i1, Image &i2) {
@@ -35,7 +36,7 @@ int main()
         vector<int> maximum;
         int maxCount = 1;
 
-        for (int i = 0; i < (images.size()) - 1; i++)
+        for (int i = 0; i < ((int)images.size()) - 1; i++)
         {
             if (images[i].letter == images[i + 1].letter)
             {
@@ -52,7 +53,7 @@ int main()
         int max_total = 0;
         int max = 0;
 
-        for (int i = 0; i < maximum.size(); i++)
+        for (int i = 0; i < (int)maximum.size(); i++)
         {
             if (i == 0 || maximum[i] == max)
             {
