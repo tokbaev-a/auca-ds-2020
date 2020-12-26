@@ -51,6 +51,11 @@ int main()
         {
             cout << pair[i].ascii << " " << pair[i].value << "\n";
         }
+
+        if (counter != 0)
+        {
+            cout << "\n";
+        }
         counter++;
     }
 }
