@@ -7,7 +7,8 @@ struct Pair
     int ascii;
     int value;
 
-    Pair(int a, int v) : ascii(a), value(v)
+    Pair(int a, int v)
+        : ascii(a), value(v)
     {
     }
 };
@@ -18,32 +19,16 @@ int main()
     int counter = 0;
     while (getline(cin, s))
     {
-        vector<Pair> pair;
-        vector<Pair> result;
 
         if (counter != 0)
-        {
             cout << "\n";
-        }
 
-        for (int i = 0; i < (int)s.length(); i++)
+        vector<Pair> pair;
+
+        for (int i = 0; i < s.length(); i++)
         {
             int c = 0;
-            for (int j = 0; j < (int)s.length(); j++)
-            {
-                if (s[i] == s[j])
-                {
-                    c++;
-                }
-            }
-            Pair p(s[i], c);
-            pair.push_back(p);
-        }
-
-        for (int i = 0; i < (int)s.length(); i++)
-        {
-            int c = 0;
-            for (int j = 0; j < (int)s.length(); j++)
+            for (int j = 0; j < s.length(); j++)
             {
                 if (s[i] == s[j])
                 {
@@ -55,11 +40,10 @@ int main()
         }
 
         sort(begin(pair), end(pair), [](const Pair &p1, const Pair &p2) {
-            if (p1.value < p2.value)
-                return true;
-            if (p1.value > p2.value)
-                return false;
-            return (p1.ascii > p2.ascii);
+            if (p1.value != p2.value)
+                return (p1.value < p2.value);
+            else
+                return (p1.ascii > p2.ascii);
         });
 
         pair.erase(unique(begin(pair), end(pair), [](const Pair &p1, const Pair &p2) {
@@ -67,7 +51,7 @@ int main()
                    }),
                    end(pair));
 
-        for (int i = 0; i < (int)pair.size(); i++)
+        for (int i = 0; i < pair.size(); i++)
         {
             cout << pair[i].ascii << " " << pair[i].value << "\n";
         }
