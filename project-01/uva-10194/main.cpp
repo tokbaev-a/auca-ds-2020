@@ -41,13 +41,14 @@ struct CmpByResult
             return t1.goals_scored > t2.goals_scored;
         if (t1.wins + t1.ties + t1.loses != t2.wins + t2.ties + t2.loses)
             return t1.wins + t1.ties + t1.loses < t2.wins + t2.ties + t2.loses;
-
-        string t1n = t1.name;
-        string t2n = t2.name;
-
-        transform(t1n.begin(), t1n.end(), t1n.begin(), ::tolower);
-        transform(t2n.begin(), t2n.end(), t2n.begin(), ::tolower);
-        return t1n < t2n;
+        else
+        {
+        string lower_t1 = t1.name;
+        string lower_t2 = t2.name;
+        transform(lower_t1.begin(), lower_t1.end(), lower_t1.begin(), ::tolower);
+        transform(lower_t2.begin(), lower_t2.end(), lower_t2.begin(), ::tolower);
+        return lower_t1 < lower_t2;
+        }
     }
 };
 
