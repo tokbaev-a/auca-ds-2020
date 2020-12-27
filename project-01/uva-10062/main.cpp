@@ -25,10 +25,10 @@ int main()
 
         vector<Pair> pair;
 
-        for (int i = 0; i < s.length(); i++)
+        for (int i = 0; i < (int)s.length(); i++)
         {
             int c = 0;
-            for (int j = 0; j < s.length(); j++)
+            for (int j = 0; j < (int)s.length(); j++)
             {
                 if (s[i] == s[j])
                 {
@@ -51,7 +51,7 @@ int main()
                    }),
                    end(pair));
 
-        for (int i = 0; i < pair.size(); i++)
+        for (int i = 0; i < (int)pair.size(); i++)
         {
             cout << pair[i].ascii << " " << pair[i].value << "\n";
         }
