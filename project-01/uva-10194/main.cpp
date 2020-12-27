@@ -35,12 +35,12 @@ struct CmpByResult
             return t1.points > t2.points;
         if (t1.wins != t2.wins)
             return t1.wins > t2.wins;
-        if (t1.wins + t1.ties + t1.loses != t2.wins + t2.ties + t2.loses)
-            return t1.wins + t1.ties + t1.loses < t2.wins + t2.ties + t2.loses;
         if (t1.goals_scored - t1.goals_against != t2.goals_scored - t2.goals_against)
             return t1.goals_scored - t1.goals_against > t2.goals_scored - t2.goals_against;
         if (t1.goals_scored != t2.goals_scored)
             return t1.goals_scored > t2.goals_scored;
+        if (t1.wins + t1.ties + t1.loses != t2.wins + t2.ties + t2.loses)
+            return t1.wins + t1.ties + t1.loses < t2.wins + t2.ties + t2.loses;
 
         string t1n = t1.name;
         string t2n = t2.name;
