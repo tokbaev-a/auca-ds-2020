@@ -100,8 +100,6 @@ int main()
             auto it1 = lower_bound(begin(teams), end(teams), team1, CmpByName());
             auto it2 = lower_bound(begin(teams), end(teams), team2, CmpByName());
 
-            cout << (*it1).name << endl;
-
             (*it1).goals_scored += goal1;
             (*it1).goals_against += goal2;
             (*it2).goals_scored += goal2;
