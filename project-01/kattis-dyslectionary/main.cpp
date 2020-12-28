@@ -27,12 +27,11 @@ int main()
     string word;
     vector<string> words;
 
-    while (true)
+    while (getline(cin, word))
     {
         if (word.empty())
         {
             config(words);
-            cout << "\n";
             words.clear();
         }
         words.push_back(word);
