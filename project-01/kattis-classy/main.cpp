@@ -13,7 +13,7 @@ int main()
         int n;
         cin >> n;
 
-        vector<pair<string, string>> data;
+        vector<pair<string, string>> vec;
 
         for (int i = 0; i < n; ++i)
         {
@@ -21,7 +21,7 @@ int main()
 
             cin >> name >> rank >> cl;
 
-            for (int j = 0; j < rank.length(); ++j)
+            for (int j = 0; j < (int)rank.length(); ++j)
             {
                 if (rank[j] == 'u')
                 {
@@ -45,10 +45,10 @@ int main()
                 parsed += 'b';
             }
 
-            data.emplace_back(name, parsed);
+            vec.emplace_back(name, parsed);
         }
 
-        stable_sort(data.begin(), data.end(), [](const pair<string, string> &a, const pair<string, string> &b) {
+        sort(vec.begin(), vec.end(), [](const pair<string, string> &a, const pair<string, string> &b) {
             if (a.second == b.second)
             {
                 return a.first < b.first;
@@ -58,7 +58,7 @@ int main()
 
         for (int i = 0; i < n; ++i)
         {
-            cout << data[i].first.substr(0, data[i].first.length() - 1) << endl;
+            cout << vec[i].first.substr(0, vec[i].first.length() - 1) << endl;
         }
 
         cout << "==============================\n";
