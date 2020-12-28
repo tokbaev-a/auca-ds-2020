@@ -8,6 +8,7 @@ int main()
     vector<string> sample;
     getline(cin, sample_str);
 
+    sample.emplace_back("");
     for (auto &i : sample_str)
     {
         if (i == ' ')
