@@ -33,9 +33,11 @@ int main()
         {
             config(words);
             words.clear();
-            cout << endl;
         }
-        words.push_back(word);
+        else
+        {
+            words.push_back(word);
+        }
     }
     config(words);
 }
