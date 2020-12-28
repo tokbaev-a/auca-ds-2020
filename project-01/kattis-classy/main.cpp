@@ -40,6 +40,8 @@ int main()
                 }
             }
 
+            reverse(parsed.begin(), parsed.end());
+
             for (int q = parsed.length() - 1; q < 10; ++q)
             {
                 parsed += 'b';
