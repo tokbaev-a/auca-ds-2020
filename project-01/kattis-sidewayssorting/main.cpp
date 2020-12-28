@@ -46,6 +46,5 @@ int main()
             }
             cout << "\n";
         }
-        cout << "\n";
     }
 }
