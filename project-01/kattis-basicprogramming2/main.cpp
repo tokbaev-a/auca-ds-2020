@@ -70,7 +70,7 @@ int main()
     else if (t == 5)
     {
         auto it1 = lower_bound(digits.begin(), digits.end(), 100);
-        auto it2 = upper_bound(digits.begin(), digits.end(), 999);
+        auto it2 = upper_bound(digits.begin(), digits.end(), 1000);
 
         while (it1 - digits.begin() <= it2 - digits.begin())
         {
