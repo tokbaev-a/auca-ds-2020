@@ -20,7 +20,7 @@ int main()
     if (t == 1)
     {
         string tmp = "No";
-        for (int i = 0; i < digits.size(); i++)
+        for (int i = 0; i < (int)digits.size(); i++)
         {
             if (binary_search(digits.begin(), digits.end(), 7777 - digits[i]))
             {
@@ -46,7 +46,7 @@ int main()
     else if (t == 3)
     {
         int tmp = -1;
-        for (int i = 0; i < digits.size() / 2; i++)
+        for (int i = 0; i < (int)digits.size() / 2; i++)
         {
             if (digits[i] == digits[i + (n / 2)])
             {
