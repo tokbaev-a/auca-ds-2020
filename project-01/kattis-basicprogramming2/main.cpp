@@ -70,9 +70,9 @@ int main()
     else if (t == 5)
     {
         auto it1 = lower_bound(digits.begin(), digits.end(), 100);
-        auto it2 = upper_bound(digits.begin(), digits.end(), 1000);
+        auto it2 = upper_bound(digits.begin(), digits.end(), 999);
 
-        while (it1 - digits.begin() <= it2 - digits.begin())
+        while (it1 - digits.begin() < it2 - digits.begin())
         {
             cout << digits[it1 - digits.begin()] << " ";
             it1++;
