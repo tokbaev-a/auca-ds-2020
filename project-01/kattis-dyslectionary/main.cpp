@@ -33,6 +33,7 @@ int main()
         {
             config(words);
             words.clear();
+            cout << endl;
         }
         words.push_back(word);
     }
