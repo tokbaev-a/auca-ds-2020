@@ -49,6 +49,10 @@ int main()
         }
 
         stable_sort(data.begin(), data.end(), [](const pair<string, string> &a, const pair<string, string> &b) {
+            if (a.second == b.second)
+            {
+                return a.first < b.first;
+            }
             return a.second < b.second;
         });
 
