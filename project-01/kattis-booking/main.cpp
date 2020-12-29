@@ -10,8 +10,14 @@ enum class Event
 
 int TimeCalc(int year, int month, int day, int hour, int minute)
 {
+    int leap;
+    if (year == 2016)
+        leap = 29;
+    else
+        leap = 28;
+
     int time_sum = minute + (hour * 60) + (day * (60 * 24));
-    int mon[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int mon[] = {31, leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     for (int i = 0; i < month - 1; i++)
     {
