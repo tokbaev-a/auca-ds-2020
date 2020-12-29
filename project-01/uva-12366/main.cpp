@@ -20,20 +20,17 @@ public:
             swap(first, second);
     }
 
-public:
     friend ostream &operator<<(ostream &out, const KingPokerHand &hand)
     {
-        printf("%d %d %d", hand.first, hand.second, hand.third);
+        cout << hand.first << " " << hand.second << " " << hand.third;
         return out;
     }
 
-public:
     bool operator==(const KingPokerHand &other) const
     {
         return first == other.first && second == other.second && third == other.third;
     }
 
-public:
     bool operator<(const KingPokerHand &other) const
     {
         if (first == second && second == third && first == third && other.first == other.second && other.second == other.third && other.first == other.third)
