@@ -45,7 +45,7 @@ int main()
 
         for (int n = 0; n < book_num; n++)
         {
-            scanf("%s %d-%d-%d %d:%d %d-%d-%d %d:%d", &tmp, &year1, &month1, &day1, &hour1, &min1, &year2, &month2, &day2, &hour2, &min2);
+            scanf("%s %d-%d-%d %d:%d %d-%d-%d %d:%d", &tmp[0], &year1, &month1, &day1, &hour1, &min1, &year2, &month2, &day2, &hour2, &min2);
             books.emplace_back(TimeCalc(year1, month1, day1, hour1, min1), Event::In);
             books.emplace_back(TimeCalc(year2, month2, day2, hour2, min2) + clean_time, Event::Out);
         }
