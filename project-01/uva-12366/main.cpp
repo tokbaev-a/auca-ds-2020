@@ -9,10 +9,28 @@ class KingPokerHand
     int third;
 
 public:
+    KingPokerHand(int f, int s, int t)
+        : first(f), second(s), third(t)
+    {
+        if (first > second)
+            swap(first, second);
+        if (second > third)
+            swap(second, third);
+        if (first > second)
+            swap(first, second);
+    }
+
+public:
     friend ostream &operator<<(ostream &out, const KingPokerHand &hand)
     {
         printf("%d %d %d", hand.first, hand.second, hand.third);
         return out;
+    }
+
+public:
+    bool operator==(const KingPokerHand &other) const
+    {
+        return first == other.first && second == other.second && third == other.third;
     }
 
 public:
@@ -29,6 +47,7 @@ public:
             {
                 if (first != other.first)
                     return first < other.first;
+
                 return third < other.third;
             }
 
@@ -36,6 +55,7 @@ public:
             {
                 if (first != other.second)
                     return first < other.second;
+
                 return third < other.first;
             }
             return false;
@@ -47,12 +67,14 @@ public:
             {
                 if (second != other.second)
                     return second < other.second;
+
                 return first < other.first;
             }
             if (other.first == other.second)
             {
                 if (second != other.first)
                     return second < other.first;
+
                 return first < other.third;
             }
             return false;
@@ -62,37 +84,6 @@ public:
             return true;
 
         return third < other.third;
-    }
-
-public:
-    KingPokerHand(int f, int s, int t)
-        : first(f), second(s), third(t)
-    {
-        int tmp;
-        if (first > second)
-        {
-            tmp = first;
-            first = second;
-            second = tmp;
-        }
-        if (second > third)
-        {
-            tmp = second;
-            second = third;
-            third = tmp;
-        }
-        if (first > second)
-        {
-            tmp = first;
-            first = second;
-            second = tmp;
-        }
-    }
-
-public:
-    bool operator==(const KingPokerHand &other) const
-    {
-        return first == other.first && second == other.second && third == other.third;
     }
 };
 
